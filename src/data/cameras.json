@@ -1,0 +1,64 @@
+{
+  "cameras": [
+    {
+      "title": "Smart Security Camera",
+      "description": "1080p HD video, two-way audio, and custom motion detection zones.",
+      "price": 99.00,
+      "oldPrice": 129.00,
+      "variants": [
+        {
+          "name": "Snow White",
+          "img": "https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          "name": "Midnight Black",
+          "img": "https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=800&q=80"
+        }
+      ]
+    },
+    {
+      "title": "Video Doorbell Pro",
+      "description": "Head-to-toe HD video view, night vision, and instant chime alerts.",
+      "price": 149.00,
+      "oldPrice": 179.00,
+      "variants": [
+        {
+          "name": "Satin Nickel",
+          "img": "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          "name": "Venetian Bronze",
+          "img": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&q=80"
+        }
+      ]
+    },
+    {
+      "title": "Floodlight Cam Wired Plus",
+      "description": "Ultra-bright motion-activated LED floodlights with 1080p HD video and security siren.",
+      "price": 199.00,
+      "oldPrice": null,
+      "variants": [
+        {
+          "name": "White Finish",
+          "img": "https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          "name": "Black Finish",
+          "img": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80"
+        }
+      ]
+    },
+    {
+      "title": "Solar Outdoor Spotlight Cam",
+      "description": "100% wire-free 2K camera powered by a compact integrated solar panel.",
+      "price": 169.00,
+      "oldPrice": 199.00,
+      "variants": [
+        {
+          "name": "Matte White",
+          "img": "https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=800&q=80"
+        }
+      ]
+    }
+  ]
+}

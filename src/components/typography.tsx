@@ -44,15 +44,15 @@ export function Price({
   ...props
 }: PriceProps) {
   return (
-    <div className={`inline-flex items-baseline gap-2 ${className}`} {...props}>
-      <span className={st.typography.priceActive}>
-        {currencySymbol}{amount.toFixed(2)}
-      </span>
+    <div className={`inline-flex items-end flex-col ${className}`} {...props}>
       {compareAtAmount && compareAtAmount > amount && (
-        <span className={st.typography.priceCompare}>
+        <span className={`line-through text-red-600 font-light`}>
           {currencySymbol}{compareAtAmount.toFixed(2)}
         </span>
       )}
+      <span className={`text-xl font-light}`}>
+        {currencySymbol}{amount.toFixed(2)}
+      </span>
     </div>
   );
 }

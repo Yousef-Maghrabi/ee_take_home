@@ -1,0 +1,56 @@
+{
+  "extras": [
+    {
+      "title": "High-Visibility Yard Sign & Decals",
+      "description": "Deter intruders before they try entering with weatherproof security signage.",
+      "price": 9.99,
+      "oldPrice": 14.99,
+      "variants": [
+        {
+          "name": "Standard Sign & Decals Pack",
+          "img": "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          "name": "Reflective Night-Glow Pack",
+          "img": "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=800&q=80"
+        }
+      ]
+    },
+    {
+      "title": "Lifetime Hardware Protection",
+      "description": "Full replacement warranty for damage, battery wear, or hardware failure.",
+      "price": 4.99,
+      "oldPrice": null,
+      "variants": [
+        {
+          "name": "Standard Lifetime Protection",
+          "img": "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80"
+        }
+      ]
+    },
+    {
+      "title": "Cellular & Battery Backup Module",
+      "description": "Keeps your system online and transmitting alarms during power outages or Wi-Fi cuts.",
+      "price": 29.99,
+      "oldPrice": 39.99,
+      "variants": [
+        {
+          "name": "Internal Backup Unit",
+          "img": "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80"
+        }
+      ]
+    },
+    {
+      "title": "Professional On-Site Installation",
+      "description": "Certified technician setup, optimal sensor placement, and in-person walkthrough.",
+      "price": 79.99,
+      "oldPrice": 99.99,
+      "variants": [
+        {
+          "name": "White-Glove Setup",
+          "img": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "sensors": [
+    {
+      "title": "Smart Motion Detector Sensor",
+      "description": "Detects thermal movement up to 30ft with customizable sensitivity and pet immunity under 50lbs.",
+      "price": 29.99,
+      "oldPrice": 39.99,
+      "variants": [
+        {
+          "name": "Matte White",
+          "img": "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          "name": "Charcoal Black",
+          "img": "https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=800&q=80"
+        }
+      ]
+    },
+    {
+      "title": "Door & Window Contact Sensor Pack",
+      "description": "Instant magnetic trigger notifications whenever doors, windows, or cabinets open or close.",
+      "price": 19.99,
+      "oldPrice": 24.99,
+      "variants": [
+        {
+          "name": "Classic White",
+          "img": "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          "name": "Dark Bronze",
+          "img": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&q=80"
+        }
+      ]
+    },
+    {
+      "title": "Smart Environmental Flood & Freeze Sensor",
+      "description": "Early detection for water leaks, sudden temperature drops, and frozen pipes near appliances.",
+      "price": 34.99,
+      "oldPrice": 44.99,
+      "variants": [
+        {
+          "name": "Glossy White",
+          "img": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80"
+        }
+      ]
+    },
+    {
+      "title": "Acoustic Glass Break Sensor",
+      "description": "360-degree coverage that analyzes micro-sound frequencies to detect breaking glass up to 25ft.",
+      "price": 39.99,
+      "oldPrice": 49.99,
+      "variants": [
+        {
+          "name": "Off-White",
+          "img": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          "name": "Midnight Black",
+          "img": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80"
+        }
+      ]
+    }
+  ]
+}

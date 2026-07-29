@@ -18,6 +18,7 @@ const st = {
       heading: "text-slate-900",
       body: "text-slate-600",
       muted: "text-slate-400",
+      red: "text-red-600", 
     }
   },
 
