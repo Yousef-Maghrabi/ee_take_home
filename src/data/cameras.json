@@ -1,62 +1,86 @@
 {
   "cameras": [
     {
-      "title": "Smart Security Camera",
-      "description": "1080p HD video, two-way audio, and custom motion detection zones.",
-      "price": 99.00,
-      "oldPrice": 129.00,
+      "title": "Wyze Cam v4",
+      "description": "The clearest Wyze Cam ever made with 2.5K QHD resolution, color night vision, and Wi-Fi 6 support.",
+      "price": 27.98,
+      "oldPrice": 35.98,
       "variants": [
         {
-          "name": "Snow White",
-          "img": "https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=800&q=80"
+          "name": "White",
+          "img": "https://www.wyze.com/cdn/shop/files/wyze-cam-v4-wyze-labs-inc-5186547.png?v=1762447655&width=713"
         },
         {
-          "name": "Midnight Black",
-          "img": "https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=800&q=80"
+          "name": "Grey",
+          "img": "https://www.wyze.com/cdn/shop/files/wyze-cam-v4-wyze-labs-inc-7932440.png?v=1770161074&width=713"
+        },
+        {
+          "name": "Black",
+          "img": "https://www.wyze.com/cdn/shop/files/wyze-cam-v4-wyze-labs-inc-2811136.png?v=1770161074&width=713"
         }
       ]
     },
     {
-      "title": "Video Doorbell Pro",
-      "description": "Head-to-toe HD video view, night vision, and instant chime alerts.",
-      "price": 149.00,
-      "oldPrice": 179.00,
+      "title": "Wyze Cam Pan v3",
+      "description": "360° pan and 180° tilt security camera with automatic motion tracking and privacy mode.",
+      "price": 34.98,
+      "oldPrice": 39.98,
       "variants": [
         {
-          "name": "Satin Nickel",
-          "img": "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80"
+          "name": "White",
+          "img": "https://www.wyze.com/cdn/shop/files/wyze-cam-pan-v3-wyze-labs-inc-4415418.webp?v=1773434969&width=713"
         },
         {
-          "name": "Venetian Bronze",
-          "img": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&q=80"
+          "name": "Black",
+          "img": "https://www.wyze.com/cdn/shop/files/refurbished-wyze-cam-pan-v3-wyze-labs-inc-689365.png?v=1773434969&width=713"
         }
       ]
     },
     {
-      "title": "Floodlight Cam Wired Plus",
-      "description": "Ultra-bright motion-activated LED floodlights with 1080p HD video and security siren.",
-      "price": 199.00,
+      "title": "Wyze Cam Floodlight v2",
+      "description": "2K floodlight camera with a 160° wide-angle view, 2800-lumen LEDs, and built-in siren.",
+      "price": 69.98,
+      "oldPrice": 89.98,
+      "variants": [
+        {
+          "name": "White",
+          "img": "https://www.wyze.com/cdn/shop/files/wyze-cam-floodlight-v2-wyze-labs-inc-339891.png?v=1762445396&width=713"
+        },
+        {
+          "name": "Black",
+          "img": "https://www.wyze.com/cdn/shop/files/wyze-cam-floodlight-v2-wyze-labs-inc-863303.png?v=1769624215&width=713"
+        }
+      ]
+    },
+    {
+      "title": "Wyze Duo Cam Doorbell",
+      "description": "Two cameras for two views. Double the porch protection with 2K HD video and included chime.",
+      "price": 69.98,
       "oldPrice": null,
       "variants": [
         {
-          "name": "White Finish",
-          "img": "https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=800&q=80"
+          "name": "Silver",
+          "img": "https://www.wyze.com/cdn/shop/files/wyze-duo-cam-battery-doorbell-wyze-labs-inc-250890.png?v=1762447336&width=713"
         },
         {
-          "name": "Black Finish",
-          "img": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80"
+          "name": "Black",
+          "img": "https://www.wyze.com/cdn/shop/files/wyze-duo-cam-battery-doorbell-wyze-labs-inc-148701.png?v=1770920552&width=713"
         }
       ]
     },
     {
-      "title": "Solar Outdoor Spotlight Cam",
-      "description": "100% wire-free 2K camera powered by a compact integrated solar panel.",
-      "price": 169.00,
-      "oldPrice": 199.00,
+      "title": "Wyze Battery Cam Pro",
+      "description": "Protect anywhere. See everything in 2.5K HDR. No power outlet or electrician needed.",
+      "price": 89.98,
+      "oldPrice": null,
       "variants": [
         {
-          "name": "Matte White",
-          "img": "https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=800&q=80"
+          "name": "White",
+          "img": "https://www.wyze.com/cdn/shop/files/wyze-battery-cam-pro-wyze-labs-inc-1939761.png?v=1762439887&width=713"
+        },
+        {
+          "name": "Black",
+          "img": "https://www.wyze.com/cdn/shop/files/wyze-battery-cam-pro-wyze-labs-inc-5922471.png?v=1751461686&width=713"
         }
       ]
     }

@@ -1,46 +1,62 @@
 {
   "plans": [
     {
-      "title": "Basic Self-Monitoring Plan",
-      "description": "Real-time push notifications, live camera video streaming, and custom app alarm triggers.",
-      "price": 0.00,
+      "title": "Cam Plus (Single Camera - Monthly)",
+      "description": "14-day cloud video event recording with smart AI alerts for person, package, pet, and vehicle detection.",
+      "price": 2.99,
       "oldPrice": null,
       "variants": [
         {
-          "name": "Free Tier",
-          "img": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80"
+          "name": "Monthly Billing",
+          "img": "https://www.wyze.com/cdn/shop/files/cam-plus-wyze-labs-inc-406564.png?v=1750111035&width=713"
         }
       ]
     },
     {
-      "title": "Pro Protection Plan",
-      "description": "24/7 emergency police and fire dispatch, 4G LTE cellular backup, and 30-day cloud video storage.",
+      "title": "Cam Plus (Single Camera - Annual)",
+      "description": "14-day cloud video event recording with smart AI alerts for person, package, pet, and vehicle detection.",
+      "price": 19.99,
+      "oldPrice": 35.88,
+      "variants": [
+        {
+          "name": "Annual Pass (Save 44%)",
+          "img": "https://www.wyze.com/cdn/shop/files/cam-plus-wyze-labs-inc-406564.png?v=1750111035&width=713"
+        }
+      ]
+    },
+    {
+      "title": "Cam Unlimited (Monthly)",
+      "description": "Covers all your Wyze cameras under one subscription with multi-cam timeline view and smart home/away modes.",
+      "price": 9.99,
+      "oldPrice": 12.99,
+      "variants": [
+        {
+          "name": "Standard Option",
+          "img": "https://www.wyze.com/cdn/shop/files/camera-security-group.png?v=1713308574&width=750"
+        }
+      ]
+    },
+    {
+      "title": "Cam Unlimited (Annual)",
+      "description": "Covers all your Wyze cameras under one subscription with multi-cam timeline view and smart home/away modes.",
+      "price": 99.99,
+      "oldPrice": 119.88,
+      "variants": [
+        {
+          "name": "Annual Pass (Save 17%)",
+          "img": "https://www.wyze.com/cdn/shop/files/camera-security-group.png?v=1713308574&width=750"
+        }
+      ]
+    },
+    {
+      "title": "Cam Unlimited Pro",
+      "description": "24/7 professional emergency dispatch, descriptive AI alerts, and up to 60 days of cloud event recording.",
       "price": 19.99,
       "oldPrice": 24.99,
       "variants": [
         {
-          "name": "Monthly Billing",
-          "img": "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80"
-        },
-        {
-          "name": "Annual Pass (Save 20%)",
-          "img": "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80"
-        }
-      ]
-    },
-    {
-      "title": "Ultimate Smart Home Guard",
-      "description": "Everything in Pro plus AI human detection, priority dispatch response, and active guard audio intervention.",
-      "price": 34.99,
-      "oldPrice": 44.99,
-      "variants": [
-        {
-          "name": "Monthly Billing",
-          "img": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=800&q=80"
-        },
-        {
-          "name": "Annual Pass (VIP Status)",
-          "img": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80"
+          "name": "Monthly Plan",
+          "img": "https://www.wyze.com/cdn/shop/files/cam-unlimited-pro-herooverlay-fire_sm.png?v=1741989067&width=750"
         }
       ]
     }

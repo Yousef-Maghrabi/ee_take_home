@@ -54,7 +54,7 @@ export default function ReviewSection({
   const finalTotal = subtotal + (isShippingFree ? 0 : shippingFee);
 
   return (
-    <aside className="w-full max-w-md bg-sky-50/70 p-6 rounded-3xl border border-sky-100 flex flex-col gap-5 text-slate-800">
+    <aside className="w-full bg-sky-50/70 p-6 rounded-3xl border border-sky-100 flex flex-col gap-5 text-slate-800 shadow-2xl">
       {/* Header */}
       <div className="space-y-1">
         <span className="text-[11px] font-bold tracking-wider text-slate-400 uppercase block">

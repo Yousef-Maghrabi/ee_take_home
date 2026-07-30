@@ -87,7 +87,7 @@ export function ProductCard({
       {hasDiscount && (
         <span
           className={`
-            absolute -top-2.5 -left-2.5 z-10 px-3 py-1 rounded-full
+            absolute top-2.5 left-2.5 z-10 px-3 py-1 rounded-full
             text-[10px] font-bold text-white shadow-sm whitespace-nowrap
             ${badgeColor}
           `}
@@ -142,7 +142,7 @@ export function ProductCard({
               </span>
             </span>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-row flex-wrap gap-3">
               {variants.map((v) => {
                 const isChipSelected = v.name === activeVariant?.name;
                 return (
