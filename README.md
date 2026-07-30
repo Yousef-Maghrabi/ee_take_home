@@ -1,26 +1,132 @@
-# Security Bundle Builder
-Build a custom home security system using Wyze equipment.
+# 🛡️ Security Bundle Builder
 
-## How to setup
-1. make sure you have git installed if not please do
-2. make sure you have node.js and npm installed if not please do
-3. clone the project by running this in your terminal 'git clone https://github.com/Yousef-Maghrabi/ee_take_home.git'
-4. navigate to the project directory by running this in your terminal 'cd ee_take_home' 
-5. install deps by running the following in your terminal 'npm install' 
-6. run the application 'npm run dev' 
-7. visit the app at 'http://localhost:5173'
+A responsive web application for building a custom home security system using Wyze products. Users can configure cameras, sensors, monitoring plans, and additional accessories, then review their complete bundle before checkout.
 
+---
 
-## Architecture & Tech Stack
-- **Tech Stack:** React, TypeScript, Tailwind CSS, Lucide React *(Note: Built with standard React rather than Next.js to match the specific constraints of the exercise).*
-- **Styling:** Tailwind CSS combined with a centralized design token configuration (`src/theme.ts`).
-- **Modular Sections:** Broken down into `Cameras.tsx`, `Plans.tsx`, `Sensors.tsx`, `Extras.tsx`, and `Review.tsx`.
-- **Reusable Components:** Core UI components centralized in `src/components/index.tsx`.
+## 🚀 Getting Started
 
-## Key Enhancements & Extras
-- **Responsive Layout Optimization:** Custom responsive grid handling for product cards on tablet and desktop breakpoints to ensure clean spacing and zero awkward wrapping.
-- **Visual Polish:** Integrated brand accent colors into headers for stronger visual hierarchy.
-- **Accessibility & UX:** Added dynamic padding and distinct background states when an accordion section is active.
+### Prerequisites
 
-## Known Limitations / Future Improvements
-- **Component Refactoring:** The section components (`Cameras.tsx`, `Sensors.tsx`, etc.) share a largely identical structure. Given more time, these would be abstracted into a single reusable dynamic section builder component.
+Before running the project, make sure you have the following installed:
+
+- **Git**
+- **Node.js** (LTS recommended)
+- **npm** (included with Node.js)
+
+---
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Yousef-Maghrabi/ee_take_home.git
+   ```
+
+2. Navigate into the project directory:
+
+   ```bash
+   cd ee_take_home
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open your browser and visit:
+
+   ```
+   http://localhost:5173
+   ```
+
+---
+
+## 🏗️ Architecture & Tech Stack
+
+### Core Technologies
+
+- **React**
+- **TypeScript**
+- **Tailwind CSS**
+- **Lucide React**
+
+> **Note:** This project intentionally uses standard React instead of Next.js to align with the requirements of the take-home exercise.
+
+### Project Structure
+
+- **Design Tokens**
+  - Centralized styling configuration in `src/theme.ts`.
+
+- **Feature Sections**
+  - `Cameras.tsx`
+  - `Plans.tsx`
+  - `Sensors.tsx`
+  - `Extras.tsx`
+  - `Review.tsx`
+
+- **Reusable Components**
+  - Shared UI components are centralized in `src/components/index.tsx` to encourage consistency and reduce duplication.
+
+---
+
+## ✨ Enhancements
+
+### Responsive Design
+
+- Optimized product grid layouts for mobile, tablet, and desktop.
+- Improved spacing and wrapping behavior across different screen sizes.
+
+### User Experience
+
+- Enhanced visual hierarchy using brand accent colors.
+- Improved accordion interactions with active-state backgrounds and adaptive spacing.
+- Consistent component spacing and typography throughout the application.
+
+### Code Organization
+
+- Centralized design tokens for easier maintenance.
+- Modular feature-based architecture.
+- Reusable UI components to minimize repetition.
+
+---
+
+## 🔮 Future Improvements
+
+Given additional time, the following improvements would be prioritized:
+
+- **Component Abstraction**
+  - Consolidate the nearly identical section components (`Cameras`, `Sensors`, `Plans`, etc.) into a single configurable, data-driven section component.
+
+- **State Management**
+  - Introduce a dedicated state management solution (such as Context or Zustand) if the application grows in complexity.
+
+- **Testing**
+  - Add unit and integration tests using Vitest and React Testing Library.
+
+- **Performance**
+  - Memoize expensive renders where appropriate.
+  - Lazy-load larger sections if the catalog expands.
+
+- **Accessibility**
+  - Continue improving keyboard navigation and screen reader support to ensure a fully accessible experience.
+
+---
+
+## 📁 Repository
+
+```
+git clone https://github.com/Yousef-Maghrabi/ee_take_home.git
+```
+
+---
+
+Built as a take-home exercise with a focus on clean architecture, reusable components, responsive design, and maintainable code.
