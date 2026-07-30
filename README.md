@@ -1,6 +1,16 @@
 # Security Bundle Builder
 Build a custom home security system using Wyze equipment.
 
+## How to setup
+1. make sure you have git installed if not please do
+2. make sure you have node.js and npm installed if not please do
+3. clone the project by running this in your terminal 'git clone https://github.com/Yousef-Maghrabi/ee_take_home.git'
+4. navigate to the project directory by running this in your terminal 'cd ee_take_home' 
+5. install deps by running the following in your terminal 'npm install' 
+6. run the application 'npm run dev' 
+7. visit the app at 'http://localhost:5173'
+
+
 ## Architecture & Tech Stack
 - **Tech Stack:** React, TypeScript, Tailwind CSS, Lucide React *(Note: Built with standard React rather than Next.js to match the specific constraints of the exercise).*
 - **Styling:** Tailwind CSS combined with a centralized design token configuration (`src/theme.ts`).
