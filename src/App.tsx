@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import CamerasSection from './Cameras';
 import PlansSection from './Plans';
 import SensorsSection from './Sensors';
@@ -10,22 +10,36 @@ import data from './data/index';
 
 // Unified State Structure
 interface SectionState {
-  quantity: number;
   selectedVariant: string;
+  quantities: Record<string, number>; // Tracks qty per variant name
 }
 
 type GlobalCartState = Record<string, SectionState>;
 
+const LOCAL_STORAGE_KEY = 'security_builder_cart_state';
+
 export default function SecurityBuilderPage() {
   // 1. Controls active step state (1 = Cameras, 2 = Plans, 3 = Sensors, 4 = Extras)
-  // Default is step 1 open, others closed
   const [activeStep, setActiveStep] = useState<number>(1);
-
-  // Ref to target the checkout button in ReviewSection
   const checkoutBtnRef = useRef<HTMLButtonElement | null>(null);
 
-  // Initialize cart state for all categories dynamically from datasets
+  // Initialize cart state dynamically from dataset or localStorage
   const [cartState, setCartState] = useState<GlobalCartState>(() => {
+    // Check localStorage first if running in the browser
+    if (typeof window !== 'undefined') {
+      try {
+        const savedCart = localStorage.getItem(LOCAL_STORAGE_KEY);
+        if (savedCart) {
+          const parsed = JSON.parse(savedCart);
+          if (parsed && typeof parsed === 'object') {
+            return parsed;
+          }
+        }
+      } catch (e) {
+        console.error('Failed to load cart state from localStorage', e);
+      }
+    }
+
     const initialState: GlobalCartState = {};
 
     const allProducts = [
@@ -36,15 +50,27 @@ export default function SecurityBuilderPage() {
     ];
 
     allProducts.forEach((item) => {
+      const defaultVariant = item.variants?.[0]?.name || '';
       initialState[item.title] = {
-        quantity: 0,
-        selectedVariant: item.variants?.[0]?.name || '',
+        selectedVariant: defaultVariant,
+        quantities: {},
       };
+      
+      // Initialize all variants to 0
+      item.variants?.forEach((v: any) => {
+        initialState[item.title].quantities[v.name] = 0;
+      });
     });
 
     // Default pre-selected values matching design mockup
-    if (initialState['Wyze Cam v4']) initialState['Wyze Cam v4'].quantity = 1;
-    if (initialState['Wyze Cam Pan v3']) initialState['Wyze Cam Pan v3'].quantity = 2;
+    if (initialState['Wyze Cam v4']) {
+      const defVar = initialState['Wyze Cam v4'].selectedVariant;
+      initialState['Wyze Cam v4'].quantities[defVar] = 1;
+    }
+    if (initialState['Wyze Cam Pan v3']) {
+      const defVar = initialState['Wyze Cam Pan v3'].selectedVariant;
+      initialState['Wyze Cam Pan v3'].quantities[defVar] = 2;
+    }
 
     return initialState;
   });
@@ -63,18 +89,24 @@ export default function SecurityBuilderPage() {
     categories.forEach(({ list, cat }) => {
       list.forEach((item) => {
         const state = cartState[item.title];
-        if (state && state.quantity > 0) {
-          const activeVariant =
-            item.variants.find((v) => v.name === state.selectedVariant) || item.variants[0];
+        if (state && state.quantities) {
+          // Push a separate cart item for EVERY variant that has a quantity > 0
+          Object.entries(state.quantities).forEach(([variantName, qty]) => {
+            if (qty > 0) {
+              const variantInfo = item.variants.find((v: any) => v.name === variantName) || item.variants[0];
 
-          items.push({
-            id: item.title,
-            title: `${item.title}${state.selectedVariant ? ` (${state.selectedVariant})` : ''}`,
-            category: cat,
-            price: item.price,
-            oldPrice: item.oldPrice,
-            quantity: state.quantity,
-            image: activeVariant?.img,
+              items.push({
+                id: `${item.title}-${variantName}`, // Unique ID for rendering
+                productId: item.title,
+                variantName: variantName,
+                title: `${item.title}${variantName ? ` (${variantName})` : ''}`,
+                category: cat,
+                price: item.price,
+                oldPrice: item.oldPrice,
+                quantity: qty,
+                image: variantInfo?.img,
+              });
+            }
           });
         }
       });
@@ -84,14 +116,25 @@ export default function SecurityBuilderPage() {
   }, [cartState]);
 
   // Handlers
-  const handleQuantityChange = (title: string, newQuantity: number) => {
-    setCartState((prev) => ({
-      ...prev,
-      [title]: {
-        ...prev[title],
-        quantity: Math.max(0, newQuantity),
-      },
-    }));
+  const handleQuantityChange = (title: string, arg2: string | number, arg3?: number) => {
+    setCartState((prev) => {
+      const productState = prev[title];
+      if (!productState) return prev;
+
+      const variantName = typeof arg2 === 'string' ? arg2 : productState.selectedVariant;
+      const newQuantity = typeof arg2 === 'number' ? arg2 : (arg3 || 0);
+
+      return {
+        ...prev,
+        [title]: {
+          ...productState,
+          quantities: {
+            ...productState.quantities,
+            [variantName]: Math.max(0, newQuantity),
+          },
+        },
+      };
+    });
   };
 
   const handleVariantChange = (title: string, variantName: string) => {
@@ -109,7 +152,6 @@ export default function SecurityBuilderPage() {
     if (currentStep < 4) {
       setActiveStep(currentStep + 1);
     } else {
-      // Step 4 (Extras) complete: focus Checkout button
       checkoutBtnRef.current?.focus();
       checkoutBtnRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
@@ -119,12 +161,22 @@ export default function SecurityBuilderPage() {
     console.log('Final Order Submitted:', cartState);
   };
 
+  // Save current cart configuration into localStorage
+  const handleSaveForLater = () => {
+    try {
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(cartState));
+      alert('Your security setup has been saved successfully!');
+    } catch (e) {
+      console.error('Failed to save cart state to localStorage', e);
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-slate-50 p-4 md:p-8 lg:p-12">
-      <div className="lg:pr-24 lg:pl-24 max-w-full mx-auto space-y-6">
+    <div className="min-h-screen bg-slate-50 p-1 md:p-8 lg:p-12">
+      <div className="lg:pr-6 lg:pl-6 max-w-full mx-auto space-y-6">
         {/* Top Title Banner */}
         <header className="mb-8">
-          <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">
+          <h1 className="text-3xl font-extrabold text-indigo-600 tracking-tight">
             Let's get started!
           </h1>
           <p className="text-slate-500 text-sm mt-1">
@@ -132,9 +184,9 @@ export default function SecurityBuilderPage() {
           </p>
         </header>
 
-        {/* Main 2-Column Layout on Desktop / Single Column on Mobile */}
+        {/* Main 2-Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Side: Step Sections (Accordion Stack) */}
+          {/* Left Side: Step Sections */}
           <main className="lg:col-span-8 space-y-6 pt-4 pb-4 rounded-2xl w-full">
             <CamerasSection
               isOpen={activeStep === 1}
@@ -173,14 +225,13 @@ export default function SecurityBuilderPage() {
           {/* Right Side: Sticky Review Sidebar */}
           <aside className="lg:col-span-4 lg:sticky lg:top-8 w-full">
             <ReviewSection
-              ref={checkoutBtnRef}
               items={cartItems}
               shippingFee={5.99}
               isShippingFree={true}
               monthlyFinancingRate={19.19}
               onQuantityChange={handleQuantityChange}
               onCheckout={handleCheckout}
-              onSaveForLater={() => console.log('Saved setup')}
+              onSaveForLater={handleSaveForLater}
             />
           </aside>
         </div>

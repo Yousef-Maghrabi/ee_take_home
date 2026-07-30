@@ -30,18 +30,26 @@ const st = {
     bodyText: "font-sans text-sm text-slate-600 leading-relaxed",
     priceActive: "font-sans text-sm font-bold text-slate-900",
     priceCompare: "font-sans text-xs text-slate-400 line-through",
+    responsive: { 
+      body: "text-xs md:text-sm lg:text-base",
+      small: "text-[10px] md:text-xs lg:text-sm",
+      h1: "text-2xl md:text-4xl lg:text-5xl",
+      h2: "text-xl md:text-3xl lg:text-4xl",
+      h3: "text-lg md:text-2xl lg:text-3xl",
+      h4: "text-base md:text-xl lg:text-2xl"
+    }
   },
 
   // Components Styling
   components: {
     layoutContainer: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start",
     card: "rounded-xl border bg-white p-5 transition-all duration-200 shadow-sm",
-    cardSelected: "border-purple-600 ring-2 ring-purple-600/10 bg-white",
+    cardSelected: "border-indigo-600 ring-2 ring-indigo-600/10 bg-white",
     cardUnselected: "border-slate-200 hover:border-slate-300 bg-white",
     stepperBtn: "w-8 h-8 rounded-md border border-slate-200 bg-white flex items-center justify-center text-slate-700 hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed transition-colors font-medium",
     colorChip: "w-7 h-7 rounded-full border-2 transition-transform active:scale-95 flex items-center justify-center cursor-pointer",
     badgeDiscount: "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800",
-    btnPrimary: "w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors shadow-sm text-center cursor-pointer",
+    btnPrimary: "w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors shadow-sm text-center cursor-pointer",
     btnSecondary: "inline-flex items-center text-sm font-semibold text-purple-600 hover:text-purple-700 transition-colors cursor-pointer",
   }
 };

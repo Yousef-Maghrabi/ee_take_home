@@ -20,14 +20,16 @@ interface SensorItem {
   variants: ProductVariant[];
 }
 
+// FIXED: Matches the new global state shape
 interface CartItemState {
-  quantity: number;
   selectedVariant: string;
+  quantities: Record<string, number>;
 }
 
 interface SensorsSectionProps {
   cartState: Record<string, CartItemState>;
-  onQuantityChange: (title: string, newQuantity: number) => void;
+  // FIXED: Signature now expects the variantName to update the correct dictionary key
+  onQuantityChange: (title: string, variantName: string, newQuantity: number) => void;
   onVariantChange: (title: string, variantName: string) => void;
   onNext: () => void;
   isOpen?: boolean; // Connects to parent accordion state
@@ -56,14 +58,17 @@ export default function SensorsSection({
     }
   };
 
-  // Calculate total selected items across this section's sensors only
-  const totalSelectedCount = sensors.reduce(
-    (sum, item) => sum + (cartState[item.title]?.quantity || 0),
-    0
-  );
+  // FIXED: Sum up all quantities across all variants for the badge
+  const totalSelectedCount = sensors.reduce((sum, item) => {
+    const productState = cartState[item.title];
+    if (!productState || !productState.quantities) return sum;
+    
+    const productTotal = Object.values(productState.quantities).reduce((acc, qty) => acc + qty, 0);
+    return sum + productTotal;
+  }, 0);
 
   return (
-    <section className="w-full max-w-6xl mx-auto pl-6 pr-6 rounded-2xl">
+    <section className="w-full max-w-6xl mx-auto sm:pl-1 sm:pr-2 md:pl-6 md:pr-0 rounded-2xl">
       {/* Top Header Bar */}
       <div className="space-y-4 mb-4">
         {/* Step Counter */}
@@ -98,7 +103,7 @@ export default function SensorsSection({
           <button
             type="button"
             onClick={handleToggle}
-            className="flex items-center gap-1.5 px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-sm font-semibold border border-purple-200 hover:bg-purple-100 transition-colors cursor-pointer shrink-0"
+            className="flex items-center gap-1.5 px-3 py-1 bg-purple-50 text-indigo-700 rounded-full text-sm font-semibold border border-purple-200 hover:bg-purple-100 transition-colors cursor-pointer shrink-0"
             aria-expanded={isProductsOpen}
           >
             <span>{totalSelectedCount} selected</span>
@@ -118,10 +123,10 @@ export default function SensorsSection({
             {/* Grid Layout: 2 Columns for first 4 items */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {sensors.slice(0, 4).map((sensor, idx) => {
-                const state = cartState[sensor.title] || {
-                  quantity: 0,
-                  selectedVariant: sensor.variants[0]?.name || '',
-                };
+                // FIXED: Extract the active variant and its specific quantity
+                const state = cartState[sensor.title];
+                const activeVariantName = state?.selectedVariant || sensor.variants[0]?.name || '';
+                const quantity = state?.quantities?.[activeVariantName] || 0;
     
                 return (
                   <ProductCard
@@ -132,9 +137,9 @@ export default function SensorsSection({
                     price={sensor.price}
                     oldPrice={sensor.oldPrice}
                     variants={sensor.variants}
-                    quantity={state.quantity}
-                    selectedVariantName={state.selectedVariant}
-                    onQuantityChange={(qty: number) => onQuantityChange(sensor.title, qty)}
+                    quantity={quantity} // Passes ONLY the quantity for the active variant
+                    selectedVariantName={activeVariantName}
+                    onQuantityChange={(qty: number) => onQuantityChange(sensor.title, activeVariantName, qty)}
                     onSelectVariant={(variantName: string) =>
                       onVariantChange(sensor.title, variantName)
                     }
@@ -144,29 +149,33 @@ export default function SensorsSection({
             </div>
     
             {/* Centered 5th Item (if present in dataset) */}
-            {sensors[4] && (
-              <div className="flex justify-center">
-                <div className="w-full md:w-1/2">
-                  <ProductCard
-                    index={4}
-                    title={sensors[4].title}
-                    description={sensors[4].description}
-                    price={sensors[4].price}
-                    oldPrice={sensors[4].oldPrice}
-                    variants={sensors[4].variants}
-                    quantity={cartState[sensors[4].title]?.quantity || 0}
-                    selectedVariantName={
-                      cartState[sensors[4].title]?.selectedVariant ||
-                      sensors[4].variants[0]?.name
-                    }
-                    onQuantityChange={(qty: number) => onQuantityChange(sensors[4].title, qty)}
-                    onSelectVariant={(variantName: string) =>
-                      onVariantChange(sensors[4].title, variantName)
-                    }
-                  />
+            {sensors[4] && (() => {
+              const sensor = sensors[4];
+              const state = cartState[sensor.title];
+              const activeVariantName = state?.selectedVariant || sensor.variants[0]?.name || '';
+              const quantity = state?.quantities?.[activeVariantName] || 0;
+
+              return (
+                <div className="flex justify-center">
+                  <div className="w-full md:w-1/2">
+                    <ProductCard
+                      index={4}
+                      title={sensor.title}
+                      description={sensor.description}
+                      price={sensor.price}
+                      oldPrice={sensor.oldPrice}
+                      variants={sensor.variants}
+                      quantity={quantity}
+                      selectedVariantName={activeVariantName}
+                      onQuantityChange={(qty: number) => onQuantityChange(sensor.title, activeVariantName, qty)}
+                      onSelectVariant={(variantName: string) =>
+                        onVariantChange(sensor.title, variantName)
+                      }
+                    />
+                  </div>
                 </div>
-              </div>
-            )}
+              );
+            })()}
     
             <div className="pt-2 flex justify-center">
               <OutlinedButton onClick={onNext}>

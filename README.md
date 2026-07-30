@@ -1,16 +1,16 @@
-# React + Vite
+# Security Bundle Builder
+Build a custom home security system using Wyze equipment.
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Architecture & Tech Stack
+- **Tech Stack:** React, TypeScript, Tailwind CSS, Lucide React *(Note: Built with standard React rather than Next.js to match the specific constraints of the exercise).*
+- **Styling:** Tailwind CSS combined with a centralized design token configuration (`src/theme.ts`).
+- **Modular Sections:** Broken down into `Cameras.tsx`, `Plans.tsx`, `Sensors.tsx`, `Extras.tsx`, and `Review.tsx`.
+- **Reusable Components:** Core UI components centralized in `src/components/index.tsx`.
 
-Currently, two official plugins are available:
+## Key Enhancements & Extras
+- **Responsive Layout Optimization:** Custom responsive grid handling for product cards on tablet and desktop breakpoints to ensure clean spacing and zero awkward wrapping.
+- **Visual Polish:** Integrated brand accent colors into headers for stronger visual hierarchy.
+- **Accessibility & UX:** Added dynamic padding and distinct background states when an accordion section is active.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Known Limitations / Future Improvements
+- **Component Refactoring:** The section components (`Cameras.tsx`, `Sensors.tsx`, etc.) share a largely identical structure. Given more time, these would be abstracted into a single reusable dynamic section builder component.

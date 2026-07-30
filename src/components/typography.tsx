@@ -14,7 +14,7 @@ interface PriceProps extends HTMLAttributes<HTMLSpanElement> {
 
 export function Header({ children, as: Component = 'h2', className = '', ...props }: TypographyProps) {
   return (
-    <Component className={`${st.typography.headingSerif} ${className}`} {...props}>
+    <Component className={`${st.typography.headingSerif} ${st.typography.responsive.h3} ${className}`} {...props}>
       {children}
     </Component>
   );
@@ -22,7 +22,7 @@ export function Header({ children, as: Component = 'h2', className = '', ...prop
 
 export function Body({ children, as: Component = 'p', className = '', ...props }: TypographyProps) {
   return (
-    <Component className={`${st.typography.bodyText} ${className}`} {...props}>
+    <Component className={`${st.typography.bodyText} ${st.typography.responsive.body} ${className}`} {...props}>
       {children}
     </Component>
   );
@@ -30,7 +30,7 @@ export function Body({ children, as: Component = 'p', className = '', ...props }
 
 export function Small({ children, as: Component = 'span', className = '', ...props }: TypographyProps) {
   return (
-    <Component className={`${st.typography.stepHeadline} ${className}`} {...props}>
+    <Component className={`${st.typography.stepHeadline} ${st.typography.responsive.small} ${className}`} {...props}>
       {children}
     </Component>
   );

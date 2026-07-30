@@ -1,54 +1,62 @@
 {
   "extras": [
     {
-      "title": "High-Visibility Yard Sign & Decals",
-      "description": "Deter intruders before they try entering with weatherproof security signage.",
+      "title": "Wyze MicroSD Card (256GB)",
+      "description": "Enables continuous 24/7 local video recording on your Wyze cameras without a subscription.",
+      "price": 22.99,
+      "oldPrice": 29.99,
+      "variants": [
+        {
+          "name": "256GB",
+          "img": "https://www.wyze.com/cdn/shop/products/wyze-microsd-card-wyze-labs-inc-814588.png?v=1762439817&width=713"
+        }
+      ]
+    },
+    {
+      "title": "Wyze Security Yard Sign & Window Decals",
+      "description": "Weatherproof aluminum security sign and UV-resistant decals to deter intruders before they approach.",
       "price": 9.99,
       "oldPrice": 14.99,
       "variants": [
         {
-          "name": "Standard Sign & Decals Pack",
-          "img": "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=800&q=80"
-        },
-        {
-          "name": "Reflective Night-Glow Pack",
-          "img": "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=800&q=80"
+          "name": "Standard Pack",
+          "img": "https://www.wyze.com/cdn/shop/files/wyze-security-yard-sign-wyze-labs-inc-826340.png?v=1762446254&width=713"
         }
       ]
     },
     {
-      "title": "Lifetime Hardware Protection",
-      "description": "Full replacement warranty for damage, battery wear, or hardware failure.",
-      "price": 4.99,
+      "title": "Wyze Solar Panel",
+      "description": "Provides continuous solar charging for Wyze battery-powered cameras so you never have to recharge manually.",
+      "price": 24.99,
+      "oldPrice": 29.99,
+      "variants": [
+        {
+          "name": "White",
+          "img": "https://www.wyze.com/cdn/shop/files/wyze-battery-cam-solar-panel-wyze-labs-inc-367231.png?v=1762439854&width=713"
+        }
+      ]
+    },
+    {
+      "title": "Wyze Cam Outdoor Extension Cable (20ft)",
+      "description": "Weatherproof power extension cord designed for long-distance outdoor camera mounting setup.",
+      "price": 12.99,
       "oldPrice": null,
       "variants": [
         {
-          "name": "Standard Lifetime Protection",
-          "img": "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80"
+          "name": "White",
+          "img": "https://www.wyze.com/cdn/shop/files/wyze-cam-usb-extension-cable-20ft-wyze-labs-inc-119182.jpg?v=1762440346&width=713"
         }
       ]
     },
     {
-      "title": "Cellular & Battery Backup Module",
-      "description": "Keeps your system online and transmitting alarms during power outages or Wi-Fi cuts.",
-      "price": 29.99,
-      "oldPrice": 39.99,
+      "title": "Wyze Spotlight Kit",
+      "description": "Attachable motion-activated LED light module for extra illumination and enhanced night vision color clarity.",
+      "price": 14.99,
+      "oldPrice": 19.99,
       "variants": [
         {
-          "name": "Internal Backup Unit",
-          "img": "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80"
-        }
-      ]
-    },
-    {
-      "title": "Professional On-Site Installation",
-      "description": "Certified technician setup, optimal sensor placement, and in-person walkthrough.",
-      "price": 79.99,
-      "oldPrice": 99.99,
-      "variants": [
-        {
-          "name": "White-Glove Setup",
-          "img": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80"
+          "name": "White",
+          "img": "https://www.wyze.com/cdn/shop/products/wyze-cam-v3-spotlight-kit-wyze-labs-inc-527180.png?v=1762439811&width=713"
         }
       ]
     }

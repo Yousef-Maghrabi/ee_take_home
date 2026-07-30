@@ -1,11 +1,13 @@
 'use client';
 
 import React from 'react';
-import { Header, Body, OutlinedButton } from './components/index';
+import { Header, Body, OutlinedButton, FilledButton } from './components/index';
 import { Truck, ShieldCheck } from 'lucide-react';
 
 export interface CartItem {
   id: string;
+  productId: string; // Added to map back to the global state product key
+  variantName: string; // Added to map back to the specific variant key
   title: string;
   category: 'cameras' | 'sensors' | 'accessories' | 'plan';
   price: number;
@@ -20,7 +22,8 @@ export interface ReviewSectionProps {
   shippingFee?: number;
   isShippingFree?: boolean;
   monthlyFinancingRate?: number;
-  onQuantityChange?: (id: string, newQuantity: number) => void;
+  // Updated signature to explicitly require the product title and variant name
+  onQuantityChange?: (productId: string, variantName: string, newQuantity: number) => void;
   onCheckout?: () => void;
   onSaveForLater?: () => void;
 }
@@ -100,7 +103,8 @@ export default function ReviewSection({
                           <div className="flex items-center gap-1.5 bg-slate-100/80 px-1 py-0.5 rounded-md border border-slate-200">
                             <button
                               type="button"
-                              onClick={() => onQuantityChange?.(item.id, item.quantity - 1)}
+                              // FIXED: Passing productId and variantName specifically
+                              onClick={() => onQuantityChange?.(item.productId, item.variantName, item.quantity - 1)}
                               className="w-4 h-4 flex items-center justify-center text-xs font-bold text-slate-500 hover:text-slate-800"
                             >
                               -
@@ -110,7 +114,8 @@ export default function ReviewSection({
                             </span>
                             <button
                               type="button"
-                              onClick={() => onQuantityChange?.(item.id, item.quantity + 1)}
+                              // FIXED: Passing productId and variantName specifically
+                              onClick={() => onQuantityChange?.(item.productId, item.variantName, item.quantity + 1)}
                               className="w-4 h-4 flex items-center justify-center text-xs font-bold text-slate-500 hover:text-slate-800"
                             >
                               +
@@ -203,12 +208,11 @@ export default function ReviewSection({
 
         {/* CTA Buttons */}
         <div className="space-y-2">
-          <OutlinedButton
+          <FilledButton
             onClick={onCheckout}
-            className="w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base rounded-xl transition-colors shadow-sm"
           >
             Checkout
-          </OutlinedButton>
+          </FilledButton>
 
           <button
             type="button"

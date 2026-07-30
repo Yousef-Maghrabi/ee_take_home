@@ -3,7 +3,7 @@ import React, { ImgHTMLAttributes } from 'react';
 interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   src: string;
   alt: string;
-  aspectRatio?: 'square' | 'video' | 'auto';
+  aspectRatio?: 'square' | 'video' | '3/4' | 'auto';
   objectFit?: 'cover' | 'contain';
 }
 
@@ -17,7 +17,8 @@ export function Image({
 }: ImageProps) {
   const aspectClasses = {
     square: 'aspect-square',
-    video: 'aspect-video',
+    video: 'aspect-video', 
+    '3/4': 'aspect-[3/4]', 
     auto: 'aspect-auto',
   };
 
